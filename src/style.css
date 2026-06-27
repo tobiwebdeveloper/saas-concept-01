@@ -1,0 +1,198 @@
+@import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+/* =========================
+   Theme Variables
+========================= */
+
+:root {
+  --color-primary: #000000;
+  --color-primary-light: #dd7a7a;
+  --color-primary-dark: #9c6d31;
+
+  --color-background: #fafaff;
+  --color-secondary: #9CA3AF;
+  --color-surface: rgb(26, 26, 26);
+
+  --color-text: #141414;
+  --color-text-muted: #b5b5b5;
+
+  --color-border: #2d2d2f;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --font-heading: "Stack Sans Notch", sans-serif;
+  --font-body: "Stack Sans Notch", sans-serif;
+}
+.bg-background {
+  background: var(--color-background);
+}
+.bg-surface {
+  background: var(--color-surface);
+}
+.bg-primary {
+  background: var(--color-primary);
+}
+
+.bg-secondary {
+  background: var(--color-secondary);
+}
+
+.text-background {
+  color: var(--color-background);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+/* =========================
+   Base
+========================= */
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    background-image: radial-gradient(rgba(0,0,0,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    margin: 0;
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    @apply text-5xl font-semibold leading-tight md:text-7xl;
+  }
+
+  h2 {
+    font-family: var(--font-heading);
+    @apply text-4xl font-semibold md:text-5xl;
+  }
+
+  h3 {
+    font-family: var(--font-heading);
+    @apply text-2xl font-medium md:text-3xl;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    @apply leading-relaxed;
+  }
+}
+.hero-preview {
+  transform: perspective(800px) rotateX(0deg);
+  transition: transform 0.3s ease;
+}
+
+.hero-preview:hover {
+  transform: perspective(800px) rotateX(5deg);
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.shimmer:hover::before {
+  animation: shimmer 0.6s ease;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 125%;
+  }
+}
+/* =========================
+   Components
+========================= */
+
+@layer components {
+  .container-custom {
+    @apply mx-auto max-w-7xl px-6;
+  }
+
+  .section {
+    @apply py-24;
+  }
+
+  .section-label {
+    color: var(--color-primary);
+    @apply mb-4 text-sm font-semibold uppercase tracking-[0.3em];
+  }
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium transition;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--color-border);
+    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium transition;
+  }
+.btn-primary,
+.btn-secondary {
+  transition: all 0.2s ease;
+}
+
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    @apply p-6;
+  }
+
+  .grid-2 {
+    @apply grid gap-12 lg:grid-cols-2;
+  }
+
+  .grid-3 {
+    @apply grid gap-8 md:grid-cols-2 lg:grid-cols-3;
+  }
+  @keyframes button-diagonal-shake {
+  0% { transform: rotate(0deg) translate(0, 0); }
+  25% { transform: rotate(-1.5deg) translate(-1px, 1px); }
+  50% { transform: rotate(1.5deg) translate(1px, -1px); }
+  75% { transform: rotate(-1deg) translate(-1px, 1px); }
+  100% { transform: rotate(0deg) translate(0, 0); }
+}
+.btn-primary:active,
+.btn-secondary:active {
+  animation: button-diagonal-shake 0.95s infinite;
+}
+}
