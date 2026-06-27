@@ -41,7 +41,7 @@ const testimonials = [
       <div
         v-for="(t, i) in testimonials"
         :key="i"
-        class="w-[280px] flex-shrink-0 shimmer p-4 rounded-xl bg-white shadow-md"
+        class="w-[280px] flex-shrink-0 shimmer p-4 bg-white shadow-md"
       >
         <div class="flex items-center gap-3">
           <img class="w-10 h-10 rounded-full object-cover" :src="t.img" />
@@ -61,7 +61,7 @@ const testimonials = [
       <div
         v-for="(t, i) in testimonials"
         :key="'dup-' + i"
-        class="w-[280px] flex-shrink-0 shimmer p-4 rounded-xl bg-white shadow-md"
+        class="w-[280px] flex-shrink-0 shimmer p-4 bg-white shadow-md"
       >
         <div class="flex items-center gap-3">
           <img class="w-10 h-10 rounded-full object-cover" :src="t.img" />
