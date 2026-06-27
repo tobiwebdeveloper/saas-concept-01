@@ -142,7 +142,7 @@ onMounted(() => {
 
         <div class="mt-14 w-full px-4">
           <div class="aspect-video w-full max-w-6xl mx-auto rounded-xl shadow-sm flex items-center justify-center hero-preview bg-white border-1">
-            <p class="text-black">9:16 Dashboard</p>
+            <p class="text-black">16:9 Dashboard</p>
           </div>
         </div>
 
@@ -152,11 +152,11 @@ onMounted(() => {
 
   <!-- TRUST -->
   <section class="sm:py-8 md:py-20 trusted text-center" id="trust">
-    <h1 class="text-2xl md:text-6xl shimmer">
+    <h1 class="text-3xl md:text-6xl shimmer">
       Trusted by 10,000+ users
     </h1>
     <h1 class="text-2xl md:text-6xl shimmer">
-      Trusted by 10,000+ users
+      Trusted by 500+ companies
     </h1>
   </section>
 
